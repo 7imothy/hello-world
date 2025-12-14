@@ -1,0 +1,574 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #007AFF;
+    --secondary-color: #5AC8FA;
+    --success-color: #34C759;
+    --warning-color: #FF9500;
+    --danger-color: #FF3B30;
+    --bg-color: #F2F2F7;
+    --card-bg: #FFFFFF;
+    --text-primary: #000000;
+    --text-secondary: #8E8E93;
+    --border-color: #E5E5EA;
+    --header-height: 60px;
+    --nav-height: 70px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: var(--nav-height);
+}
+
+/* Header */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: var(--header-height);
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.app-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Content Area */
+.content {
+    margin-top: var(--header-height);
+    padding: 16px;
+    background-color: var(--bg-color);
+    min-height: calc(100vh - var(--header-height) - var(--nav-height));
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: var(--nav-height);
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 100;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 11px;
+    gap: 4px;
+}
+
+.nav-btn.active {
+    color: var(--primary-color);
+}
+
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Card Styles */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.card-meta-left {
+    color: var(--text-secondary);
+}
+
+.card-meta-right {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-easy {
+    background-color: rgba(52, 199, 89, 0.15);
+    color: var(--success-color);
+}
+
+.badge-moderate {
+    background-color: rgba(255, 149, 0, 0.15);
+    color: var(--warning-color);
+}
+
+.badge-advanced {
+    background-color: rgba(255, 59, 48, 0.15);
+    color: var(--danger-color);
+}
+
+.badge-critical {
+    background-color: rgba(255, 59, 48, 0.15);
+    color: var(--danger-color);
+}
+
+.badge-high {
+    background-color: rgba(255, 149, 0, 0.15);
+    color: var(--warning-color);
+}
+
+.badge-medium {
+    background-color: rgba(0, 122, 255, 0.15);
+    color: var(--primary-color);
+}
+
+/* Weather Card */
+.weather-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.weather-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.weather-temp {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.weather-condition {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.weather-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.weather-metric {
+    background-color: rgba(255,255,255,0.2);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.weather-metric-label {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+
+.weather-metric-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Diving Conditions */
+.diving-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.diving-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.diving-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.diving-metric {
+    text-align: center;
+}
+
+.diving-metric-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.diving-metric-value {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.visibility-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: rgba(52, 199, 89, 0.1);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--success-color);
+}
+
+.visibility-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+}
+
+/* Forecast */
+.forecast-section {
+    margin-top: 16px;
+}
+
+.forecast-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.forecast-list {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.forecast-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.forecast-item:last-child {
+    border-bottom: none;
+}
+
+.forecast-day {
+    width: 90px;
+    font-weight: 500;
+}
+
+.forecast-condition {
+    flex: 1;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.forecast-temps {
+    display: flex;
+    gap: 4px;
+}
+
+.forecast-high {
+    font-weight: 600;
+}
+
+.forecast-low {
+    color: var(--text-secondary);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+.modal.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 60px;
+    position: relative;
+    animation: slideUp 0.3s;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    z-index: 10;
+}
+
+#modal-body {
+    padding: 24px;
+}
+
+.modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-right: 40px;
+}
+
+.modal-section {
+    margin-bottom: 24px;
+}
+
+.modal-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.modal-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.modal-list {
+    list-style: none;
+}
+
+.modal-list li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.modal-list li:before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.detail-row {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    width: 120px;
+    color: var(--text-secondary);
+}
+
+.detail-value {
+    flex: 1;
+    color: var(--text-primary);
+}
+
+/* Segment Control */
+.segment-control {
+    display: flex;
+    background-color: var(--border-color);
+    border-radius: 10px;
+    padding: 2px;
+    margin-bottom: 16px;
+}
+
+.segment-btn {
+    flex: 1;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.segment-btn.active {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .content {
+        padding: 12px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+}
+
+/* Install Prompt */
+.install-prompt {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.install-prompt-text {
+    flex: 1;
+}
+
+.install-prompt h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.install-prompt p {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.install-btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dismiss-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px;
+    margin-left: 8px;
+    cursor: pointer;
+    opacity: 0.8;
+}
